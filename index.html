@@ -2884,6 +2884,15 @@ input.error {
 </style>
 
 
+<script type="text/javascript">
+  function trim(el) {
+    el.value = el.value.
+    replace(/(^\s*)|(\s*$)/gi, ""). // removes leading and trailing spaces
+    replace(/[ ]{2,}/gi, " "). // replaces multiple spaces with one space 
+    replace(/\n +/, "\n"); // Removes spaces after newlines
+    return;
+}  
+</script>
 
 
 
@@ -3403,7 +3412,7 @@ source: values
           <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> Longitude</label>
           <div class="col-sm-5">
             <input type="hidden" id="idStudent"/>
-            <input type="text" id="long"  name="long" class="form-control" autocomplete="on"  placeholder="Your Longitude E.g. 3.54677" required="true" maxlength="7" />
+            <input type="text" id="long"  name="long" class="form-control" autocomplete="on"  placeholder="Your Longitude E.g. 3.54677" required="true" maxlength="7" onchange="return trim(this)" />
 
           </div>
         </div>
@@ -3414,7 +3423,7 @@ source: values
 
           <label for="labellatitude" id="labellatitude" class="col-sm-3 control-label">  Latitude</label>
           <div class="col-sm-5">
-            <input type="text" id="lat" name="lat" autocomplete="on"  class="form-control" placeholder="Your Latitude E.g. 6.54677" required="true" maxlength="7" />
+            <input type="text" id="lat" name="lat" autocomplete="on"  class="form-control" placeholder="Your Latitude E.g. 6.54677" required="true" maxlength="7" onchange="return trim(this)" />
 
 
           </div>
