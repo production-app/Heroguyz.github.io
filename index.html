@@ -2642,6 +2642,7 @@
 <link rel="stylesheet" type="text/css" href=" https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -2677,12 +2678,16 @@ table {
 
  
 }
-th,
+td  {padding:5px; border: 1px solid #ddd;}
+th {padding:5px; border: 1px solid #ddd;}
+  
+td[contenteditable=true] { outline: 2px solid #0af; }
+
 td {
   padding: 6px 15px;
 }
 th {
-  background: darkgrey;;
+  background: darkgrey;
   color: #fff;
   text-align: left;
 }
@@ -2749,14 +2754,14 @@ select {
 
 
 input[type=text], select {
-    width: 100%;
+    width: 85%;
     padding: 1px 0px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
-    text-transform: ;
+    text-transform:;
     
 }
 
@@ -2765,11 +2770,11 @@ input[type=text]:focus {
 }
 
 input[type=submit] {
-    width: 45%;
+    width: 40%;
     background-color: #4CAF50;
     color: white;
-    padding: 10px 15px;
-    margin: 8px 0;
+    padding: 4px 5px;
+    margin: 5px 0px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -2881,6 +2886,11 @@ input.error {
     border: 1px solid red;
 }
 
+.right{ float: right; background:red }
+
+
+
+
 </style>
 
 
@@ -2893,6 +2903,414 @@ input.error {
     return;
 }  
 </script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function () {  
+    
+    var poles = " <br/> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your Caps Lock from your Keyboard. ALL inputs must be in UPPERCASE.  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p> <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Poles_Number:</label> <div class='col-sm-7'> <input type='text' id='polenumber' name='polenumber'class='form-control' autocomplete='on' placeholder='Your Label E.g. P1' required='true' maxlength='3' minlength='2' pattern='[P]{1}[0-9]{1,2}' title='Pls. use this format: P20 OR Turn on your Caps Lock' /> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Pole_Landmark:</label> <div class='col-sm-7'> <input type='text' id='polelandmark' name='polelandmark' class='form-control' placeholder='Your Label E.g. House 3 / Plot 100' ' required='true' /> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_Number:</label> <div class='col-sm-7'> <input type='text'  id='polemstnumber' name='polemstnumber' class='form-control' placeholder='Your Label E.g. MSTP7' pattern='[M][S][T][P]{1}[0-9]{1,3}' minlength='4' maxlength='6' title='Pls. use this format: MSTP5 OR Turn on your Caps Lock' autocomplete='on'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_Number:</label> <div class='col-sm-7'> <input type='text' id='poleclosurenumber' name='poleclosurenumber' class='form-control' placeholder='Your Label E.g.CP4 ' autocomplete='on' pattern='[C][P]{1}[0-9]{1,2}' minlength='3' maxlength='4'  title='Pls. use this format: CP40 OR Turn on your Caps Lock'/> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='polemstlength' pattern='[D][L][X]{1}/[0-9]{2,3}[M]' title='Pls use this format: DLX/500M OR Turn on your Caps Lock' name'polemstlength' class='form-control' placeholder='Your Label E.g. DLX/500M'/ > </div> </div> <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Type_Length:</label> <div class='col-sm-7'> <input type='text' id='polebbcablelength' name='polebbcablelength' class='form-control' placeholder='Your Label E.g. 900OM/24CORE' autocomplete='on' pattern='[0-9]{2,4}[M]/[0-9]{2}[C][O][R][E]' title='Pls use this format: 900OM/24CORE OR Turn on your Caps Lock' />  </div>  </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button> <span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'><span class='glyphicon glyphicon-refresh'></span> Reset </button> </div> ";
+
+    var HandHoles = "<br> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your capslock from your Keyboard. ALL inputs must be in UPPERCASE  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p>  <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Access_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='accesshhnumber' maxlength='6' minlength='4' pattern='[A][H][H]{3}[0-9]{1,3}' title='Pls. use this format: AHH2 OR Turn on your Caps Lock' required='true' autocomplete='on' name='accesshhnumber' class='form-control' autocomplete='on' placeholder='Your Name E.g. P1'/> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Handholes_Landmark:</label> <div class='col-sm-7'> <input type='text' id='hhlandmark' name='hhlandmark' class='form-control' placeholder='Your Label E.g. HOUSE 12/ BLOCK 5'/> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='msthhnumber' name='msthhnumber' pattern='[M][S][T][H][H]{3}[0-9]{1,3}' title='Pls. Use this format: MSTHH5 OR Turn on your Caps Lock' class='form-control' placeholder='Your Name E.g. House 2'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_HH_Number:</label> <div class='col-sm-7'> <input type='text' pattern='[C][H][H]{3}[0-9]{1,3}' title='Pls. Use this format: CHH5 OR Turn on your Caps Lock' id='closurehhnumber' name='closurehhnumber' class='form-control' placeholder='Your Label E.g. BAN/P1/MHH1'/>  <span> Pls, three letters prefix for CityName,StreetName, and number of the Network Element E.g VIC/ODE/P1/M2.   </span> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='msthhcablelength' name='msthhcablelength' class='form-control' pattern='[D][L][X]{1}/[0-9]{2,3}[M]' title='Pls use this format: DLX/500M' placeholder='Your Label E.g. DLX/500M'/ required> </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='bbhhcablelength' pattern='[0-9]{2,4}[M]/[0-9]{2}[C][O][R][E]' title='Pls use this format: 900OM/24CORE OR Turn on your Caps Lock' name='bbhhcablelength' class='form-control' placeholder='Your Label E.g.500M/24CORE'/> </div> </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button><span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'> <span class='glyphicon glyphicon-refresh'></span> Reset </button> </div>";
+
+      var fdhCabinet = "<br> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your capslock from your Keyboard. ALL inputs must be in UPPERCASE  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p>  <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>FDH Cabinet_Number:</label> <div class='col-sm-7'> <input type='text' id='fdhcabnumber' name='fdhcabnumber' class='form-control' autocomplete='on' placeholder='Your Name E.g. P1'/> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Handholes_Landmark:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Name E.g. MHH2'/> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_Number:</label> <div class='col-sm-7'> <input type='text' id='' name='' class='form-control' placeholder='Your Name E.g. House 2'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_Number:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. BAN/P1/MHH1'/>  <span> Pls, three letters prefix for CityName,StreetName, and number of the Network Element E.g VIC/ODE/P1/M2.   </span> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. DLX/500M'/ required> </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. DLX/500M'/> </div> </div> <br>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'>Create</button><span> &nbsp; </span> <br> <hr> ";
+
+
+
+
+    $('#id_contact_info').change(function () {
+
+
+      if ($(this).val()==1){
+        $('.choice_poles').hide();
+        $('.choice_handholes').hide();
+        $('.choice_cabinets').hide();
+
+      }
+
+        if ($(this).val() == 2) {
+            console.log('poles');
+            $('.choice_poles').show();
+            $('.choice_poles').html(poles);
+            $('.choice_handholes').hide();
+            $('.choice_cabinets').hide();
+
+           
+         
+        } 
+
+         if ($(this).val() == 3) {
+            console.log('Hand-Holes');
+            $('.choice_handholes').html(HandHoles);
+            $('.choice_handholes').show();
+            $('.choice_poles').hide();
+            $('.choice_cabinets').hide();
+
+        }
+
+
+        else if ($(this).val() == 4) {
+            console.log('FDHCabinet');
+            $('.choice_cabinets').show();
+            $('.choice_cabinets').html(fdhCabinet);
+            $('.choice_poles').hide();
+            $('.choice_handholes').hide();
+
+        }
+
+    });
+
+});
+
+
+
+
+var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name'
+        
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById('route').value = '';
+          //document.getElementById('route2').value = '';
+          document.getElementById('route').disabled = true;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+
+
+
+</script>
+
+
+<script type="text/javascript">
+
+//autocimple
+
+$(function(){
+var values = ["3.45554", "6.43455", "P3", "P20", "C4", "C45","M50","M2","DLX/30M","STD/200M","OFS/3000M", "OFS/200M" ,"AHH3", "AHH30"];
+
+$("#long, #lat, #polenumber, #polemstnumber, #poleclosurenumber, #polemstlength, #search" ).autocomplete({
+source: values
+});
+
+});
+</script>
+
+ 
+</head>
+<body>
+
+
+<div style="text-align:center; margin: 0px; padding:0em 0; font-size: 15px">  <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=small&timezone=Africa%2FLagos" width="100%" height="90" frameborder="0" seamless></iframe> <label> eDataMaps Collection Tool</label> </div>
+  
+<div class="container" >
+ <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <button id="cli" onclick="read_value()"> + </button>
+            <button type="button" id="" class="btn btn-warning" onclick="update_value()" > <span class="glyphicon glyphicon-edit"></span> Update </button><span>&nbsp;</span>
+            
+            <div>
+
+            <div class="row">
+              
+                             
+                <div class="col-md-4">
+                <div id="mbody"> 
+
+
+
+
+                  
+                    <div class="pull-right"> </div>  
+                 
+                  
+                </div>
+              </div>
+            </div>
+
+                </div></div>
+               
+           
+
+            <div class="modal-footer">
+                
+            </div>  </div> 
+        </div>
+        <!-- /.modal-content -->
+    
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+</div>
+
+
+
+<div class="container" >
+  <div class="row" >
+    <ol class="breadcrumb" style="background-color: grey;  border-radius: 9px;"><img src="/globe9.gif" align="right" width=50 height=55 >
+      <li><a href="#"><span class="glyphicon glyphicon-home"> </span>  Home </a></li>
+      <li><a href=""><span class="glyphicon glyphicon-map-marker"> </span>  Maps </a></li>
+      <li class="">Data Entry</li>
+
+    </ol>
+  </div>
+
+
+
+
+    
+  <div class="row">
+    <div class="col-md-7">
+     <form class="form-horizontal" role="form" id="form" onsubmit="return false" oninput="txtFullName.value = lat.value +','+ long.value" onclick="id.value = route.value + '/00'  + me.value " >
+        <div class="form-group">
+      
+          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> Location </label>
+          <div class="col-sm-8">
+         
+          <input type="text" id="autocomplete" name="autocomplete" onFocus="geolocate()"  class="form-control"  placeholder="Your Street-Name E.g. Adeola Oduku" required /> </div> </div>
+
+           <div class="form-group">
+          
+          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> Street Name </label>
+          <div class="col-sm-8">
+          <input type="text" id="route" class="form-control" name="route"  readonly="true" onclick="+ store" /> </div> </div>
+     
+           <div class="form-group">
+         
+          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> ID </label>
+
+          <div class='col-sm-8'>
+          <input type="text"  id="id" name="id" class="form-control"  /> 
+          <input type="hidden" id="txtAcrescimo" name="me" required />
+ </div> </div>
+
+
+
+           <div class="form-group">
+         
+          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label" > Code Generator </label>
+
+          <div class='col-sm-4'>
+         <input type="submit" value="Add +" class="bio add"  > 
+         <input type="submit" value="Minus -" class="bio minus"  >  
+
+
+         </div> </div>
+
+
+          
+          <legend> Spatial Data</legend>
+          <p> Kindly input the GPS Coordinate, below</p>
+          <div class="form-group">
+          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> Longitude </label>
+          <div class="col-sm-5">
+            <input type="hidden" id="idStudent"/>
+            <input type="text" id="long"  name="long" class="form-control" autocomplete="on"  placeholder="Your Longitude E.g. 3.54677" required="true" maxlength="7"  onchange="return trim(this) "   /> 
+
+          </div>
+        </div>
+
+
+
+       <div class="form-group">
+
+          <label for="labellatitude" id="labellatitude" class="col-sm-3 control-label">  Latitude </label>
+          <div class="col-sm-5">
+            <input type="text" id="lat" name="lat" autocomplete="on"  class="form-control" placeholder="Your Latitude E.g. 6.54677" required="true" maxlength="7" />
+
+
+          </div>
+        </div>
+
+        <div class="form-group">
+
+         
+          <div class="col-sm-5">
+          <input type="hidden" id="latlng" name="txtFullName" autocomplete="on"  class="form-control"/>
+
+          <button class="y" id="clic" > <span class="glyphicon glyphicon-map-marker"></span> Reverse Geocoder </button> <div id="test"> </div>
+ 
+          </div>
+        </div>
+
+        <br><br>
+  
+<legend >Non-spatial Data (Network Elements)</legend>
+<div class="form-fields">
+    <table id="bio">
+        <tr>
+            <th>
+       <label for="id_contact_info">Please, select related Network elements linking the spatial data above</label>
+            </th>
+            <td>
+                 <select name="contact_info" id="id_contact_info" style="">
+                    <option value="1">Select Network Elements</option>
+                    <option value="2"> Poles</option>
+                    <option value="3">Hand-Holes</option>
+                    <option value="4">FDH Cabinets</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="choice_poles"></tr>
+        <tr class="choice_handholes"></tr>
+        <tr class="choice_cabinets"></tr>
+    </table>
+</div>
+
+
+<br>
+          <div class="col-sm-offset-1 col-sm-30">
+            
+           <button type="reset" style="  background-color: #4CAF50;  border: none;  color: white;   padding: 5px 8px; text-align: center; text-decoration: none;   display: inline-block; font-size: 16px; margin: 4px 2px;  -webkit-transition-duration: 0.4s; border-radius: 5px;  transition-duration: 0.4s; cursor: pointer;" id="clic" ><span class='glyphicon glyphicon-refresh'></span>  Reset </button>
+
+           
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<br>
+  
+
+
+  <div class="row">
+    <nav class="navbar navbar-dark" style="background-color: grey;">
+      <form class="navbar-form navbar-center" role="search">
+
+       <div class="col-sm-15">
+<button type="button" id="createStudent" class="btn btn btn-primary"  onclick="insert_value()" value="Create Student"><span class="glyphicon glyphicon-floppy-disk"> </span> Create </button> <span>&nbsp;</span>
+
+
+<button type="button" id="" class="btn btn-success" onclick="read_value()" value="Read"><span class="glyphicon glyphicon-folder-open"></span>  Read  </button><span>&nbsp;</span>
+
+<button type="button" id="" class="btn btn-warning" onclick="update_value()" > <span class="glyphicon glyphicon-edit"></span> Update </button><span>&nbsp;</span>
+
+<button type="button" id="" class="btn btn-danger" value=""  onclick="delete_value()" > <span class="glyphicon glyphicon-trash"></span>  Delete </button>
+
+
+</div>
+
+        <div class="col-sm-offset-10 col-sm-7"> 
+          <input type="text" class="form-control" placeholder="Search" id="search"  /> 
+
+        </div> 
+
+    
+
+
+
+       
+      </form>
+    </nav>
+  </div>
+  
+  <br>
+
+
+</div>
+
+
+
+<div align="center">
+<div id="loader"></div>
+
+<p id="re"></p>
+
+
+<br>
+
+
+<div id="showData"></div>
+
+</div>
+
+
+<script type="text/javascript">
+  
+  $(function() {
+
+  var $td = $("#idx");
+  
+
+  $td.on({
+    "keypress" : function(e) {
+      if (e.which == 13) { // On Return key - "save" cell
+        e.preventDefault();
+        $(this).prop("contenteditable", false);
+      }
+    },
+    "dblclick" : function() {
+      $td.not(this).prop("contenteditable", false);
+      $(this).prop("contenteditable", true);
+    }
+  });
+
+});
+</script>
+
+
+
+
+
+
 
 
 
@@ -3055,11 +3473,8 @@ var autocomplete = $("#autocomplete").val();
   }
   
 
+ function read_value() {
 
-  
-
-  
-function read_value() {
 
 $("#re").css("visibility","hidden");
    
@@ -3070,10 +3485,627 @@ $.getJSON(url, function (json) {
 
     // Set the variables from the results array
    
+  
+        // CREATE DYNAMIC TABLE.
+
+
+
+    var editCounter = 0;
+
+    var table = document.createElement('table');
+    table.id = "table";
+
+    var header = document.createElement('th');
+    var cell = document.createElement('td');
+    var input = document.createElement('input');
+    
+    var tableContainer = document.createElement('div');
+    showData.appendChild(tableContainer);
+    
+    var formContainer = document.createElement('form');
+    showData.appendChild(formContainer);
+
+
+    var divContainer = document.getElementById("showData");
+        //divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    
+    var br= document.createElement('br');
+    divContainer.appendChild(br);
+    
+    var br2= document.createElement('br');
+    divContainer.appendChild(br2);
+
+          //var table =document.createElement("table");
+
+
+    function createTable() {
+
+
+      tableContainer.appendChild(table);
+      if ((table.nodeValue) != 0) {
+      table.innerHTML = "";
+      }
+      var row = document.createElement('tr');
+      table.appendChild(row);
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "Select";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "Sl.No";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "Time_Stamp";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "ID";
+
+       header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "LONG";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "LAT";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "POLE_NUMBER";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "POLE_LANDMARK";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "POLE_MST_NUMBER";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "POLE_CLOSURE_NUMBER";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "POLE_MST_CABLELENGTH";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "POLE_BB_CABLE_LENGTH";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "AHH_NUMBER";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "HANDHOLE_LANDMARK";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "MST_HH_NUMBER";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "CLOSURE_HH_NUMBER";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "MST_HH_CABLE_LENGTH";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "BB_HH_CABLE_LENGTH";
+
+      header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "STREET_NAME";
+
+       header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "LOCATION";
+   
+      
+    //var header = table.createTHead();
+    //row.appendChild(header);
+
+    
+
+     header = document.createElement('th');
+      row.appendChild(header);
+      header.innerHTML = "Action";
+
+
+    
+       
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < json.records.length; i++) {
+
+ //for (var i = 0; i < json.records.length; i++) {
+
+      var btnSave = document.createElement('button');
+      btnSave.innerHTML = "Save";
+      //btnSave.onclick = saveCell;
+      var sp1 = document.createElement("span");
+           sp1.style.color = "green";
+           sp1.setAttribute("class", "glyphicon glyphicon-saved");
+           //sp1.setAttribute("class", "glyphicon glyphicon-ok-circle");
+            btnSave.appendChild(sp1);
+
+      var btnEdit = document.createElement('input');
+      btnEdit.type = "button";
+      btnEdit.value = "Edit";
+      btnEdit.onclick = editCell;
+
+      var checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+      checkbox.id = "checkBox";
+      //checkbox.onclick = "changeColor";
+      
+      var row = document.createElement("tr");
+      table.appendChild(row);
+
+      var cell = document.createElement("td");
+      row.appendChild(cell);
+      cell.appendChild(checkbox);
+
+      var cell = document.createElement("td");
+      row.appendChild(cell);
+      cell.innerHTML = i;
+// Watch out.............................
+
+for (key in json.records[i]) {
+        var cell = document.createElement("td");
+        row.appendChild(cell);
+        cell.innerHTML = json.records[i][key];
+      }
+     
+
+//}
+      var cell = document.createElement("td");
+      row.appendChild(cell);
+      cell.appendChild(btnEdit);
+      cell.appendChild(btnSave);
+      
+      }
+
+ return true;
+    }
+    createTable();
+
+
+
+
+
+//var btnDelete = document.createElement('input');
+    //btnDelete.type = "button";
+    //btnDelete.value = "Delete";
+    //btnDelete.onclick = deleteRow;
+    //formContainer.appendChild(btnDelete);
+
+
+    var time = document.createElement('input');
+    time.type = "hidden";
+    time.placeholder = "ID";
+    time.required = true;
+    time.className = "textField";
+    time.id="time";
+    time.name="time";
+    time.title = "time";
+    formContainer.appendChild(time);
+
+    var id1 = document.createElement('input');
+    id1.type = "text";
+    id1.placeholder = "ID";
+    id1.required = true;
+    id1.className = "textField";
+    id1.id="id1";
+    id1.name="id1";
+    id1.title = "id";
+    id1.class='form-control'
+    formContainer.appendChild(id1);
+
+
+    var long1 = document.createElement('input');
+    long1.type = "text";
+    long1.placeholder = "LONGITUDE";
+    long1.required = true;
+    long1.className = "textField";
+    long1.id="long1";
+    long1.name="long1";
+    long1.title = "longitude";
+    formContainer.appendChild(long1);
+
+    var lat1 = document.createElement('input');
+    lat1.type = "text";
+    lat1.placeholder = "LATITUDE";
+    lat1.required = true;
+    lat1.className = "textField";
+    lat1.id = "lat1";
+    lat1.name="lat1";
+    lat1.title = "Latitude";
+    formContainer.appendChild(lat1);
+
+
+    var pole1 = document.createElement('input');
+    pole1.type = "text";
+    pole1.placeholder = "POLE_NUMBER";
+    pole1.required = true;
+    pole1.className = "textField";
+    pole1.id = "pole1";
+    pole1.name="pole1";
+    pole1.title = "POLE_NUMBER";
+    formContainer.appendChild(pole1);
+
+
+    var pole2 = document.createElement('input');
+    pole2.type = "text";
+    pole2.placeholder = "POLE_LANDMARK";
+    pole2.required = true;
+    pole2.className = "textField";
+    pole2.id = "pole2";
+    pole2.name="pole2";
+    pole2.title = "POLE_LANDMARK";
+    formContainer.appendChild(pole2);
+
+
+    var pole3 = document.createElement('input');
+    pole3.type = "text";
+    pole3.placeholder = "POLE_MST_NUMBER";
+    pole3.required = true;
+    pole3.className = "textField";
+    pole3.id = "pole3";
+    pole3.name="pole3";
+    pole3.title = "POLE_MST_NUMBER";
+    formContainer.appendChild(pole3);
+
+
+    var pole4 = document.createElement('input');
+    pole4.type = "text";
+    pole4.placeholder = "POLE_CLOSURE_NUMBER";
+    pole4.required = true;
+    pole4.className = "textField";
+    pole4.id = "pole4";
+    pole4.name="pole4";
+    pole4.title = "POLE_CLOSURE_NUMBER";
+    formContainer.appendChild(pole4);
+
+
+    var pole5 = document.createElement('input');
+    pole5.type = "text";
+    pole5.placeholder = "POLE_MST_CABLELENGTH";
+    pole5.required = true;
+    pole5.className = "textField";
+    pole5.id = "pole5";
+    pole5.name="pole5";
+    pole5.title = "POLE_MST_CABLELENGTH";
+    formContainer.appendChild(pole5);
+
+    var pole6 = document.createElement('input');
+    pole6.type = "text";
+    pole6.placeholder = "POLE_BB_TYPE_CABLE_LENGTH";
+    pole6.required = true;
+    pole6.className = "textField";
+    pole6.id = "pole6";
+    pole6.name="pole6";
+    pole6.title = "POLE_BB_TYPE_CABLE_LENGTH";
+    formContainer.appendChild(pole6);
+
+    var hh = document.createElement('input');
+    hh.type = "text";
+    hh.placeholder = "ACCESS_HH_NUMBER";
+    hh.required = true;
+    hh.className = "textField";
+    hh.id = "hh";
+    hh.name="hh";
+    hh.title = "ACCESS_HH_NUMBER";
+    formContainer.appendChild(hh);
+
+
+    var hh1 = document.createElement('input');
+    hh1.type = "text";
+    hh1.placeholder = "HANDHOLE_LANDMARK";
+    hh1.required = true;
+    hh1.className = "textField";
+    hh1.id = "hh1";
+    hh1.name="hh1";
+    hh1.title = "HANDHOLE_LANDMARK";
+    formContainer.appendChild(hh1);
+
+    var hh2 = document.createElement('input');
+    hh2.type = "text";
+    hh2.placeholder = "MST_HH_NUMBER";
+    hh2.required = true;
+    hh2.className = "textField";
+    hh2.id = "hh2";
+    hh2.name="hh2";
+    hh2.title = "MST_HH_NUMBER";
+    formContainer.appendChild(hh2);
+
+    var hh3 = document.createElement('input');
+    hh3.type = "text";
+    hh3.placeholder = "CLOSURE_HH_NUMBER";
+    hh3.required = true;
+    hh3.className = "textField";
+    hh3.id = "hh3";
+    hh3.name="hh3";
+    hh3.title = "CLOSURE_HH_NUMBER";
+    formContainer.appendChild(hh3);
+
+    var hh4 = document.createElement('input');
+    hh4.type = "text";
+    hh4.placeholder = "MST_HH_CABLE_LENGTH";
+    hh4.required = true;
+    hh4.className = "textField";
+    hh4.id = "hh4";
+    hh4.name="hh4";
+    hh4.title = "MST_HH_CABLE_LENGTH";
+    formContainer.appendChild(hh4);
+
+    var hh5 = document.createElement('input');
+    hh5.type = "text";
+    hh5.placeholder = "BB_HH_CABLE_TYPE_LENGTH";
+    hh5.required = true;
+    hh5.className = "textField";
+    hh5.id = "hh5";
+    hh5.name="hh5";
+    hh5.title = "BB_HH_CABLE_TYPE_LENGTH";
+    formContainer.appendChild(hh5);
+
+    var streetname = document.createElement('input');
+    streetname.type = "text";
+    streetname.placeholder = "STREET_NAME";
+    streetname.required = true;
+    streetname.className = "textField";
+    streetname.id = "s1";
+    streetname.name="s1";
+    streetname.title = "STREET_NAME";
+    formContainer.appendChild(streetname);
+
+    var location = document.createElement('input');
+    location.type = "text";
+    location.placeholder = "LOCATION";
+    location.required = true;
+    location.className = "textField";
+    location.id = "s1";
+    location.name="s1";
+    location.title = "LOCATION";
+    formContainer.appendChild(location);
+
+
+
+
+    function createForm() {
+      formContainer.appendChild(id1);
+      id1.value = "";
+      formContainer.appendChild(long1);
+      long1.value = "";
+      formContainer.appendChild(lat1);
+      lat1.value = "";
+      formContainer.appendChild(pole1);
+      pole1.value = "";
+      formContainer.appendChild(pole2);
+      pole2.value = "";
+      formContainer.appendChild(pole3);
+      pole3.value = "";
+      formContainer.appendChild(pole4);
+      pole4.value = "";
+      formContainer.appendChild(pole5);
+      pole5.value = "";
+      formContainer.appendChild(pole6);
+      pole6.value = "";
+      formContainer.appendChild(hh);
+      hh.value = "";
+      formContainer.appendChild(hh1);
+      hh1.value = "";
+      formContainer.appendChild(hh2);
+      hh2.value = "";
+      formContainer.appendChild(hh3);
+      hh3.value = "";
+      formContainer.appendChild(hh4);
+      hh4.value = "";
+      formContainer.appendChild(hh5);
+      hh5.value = "";
+      formContainer.appendChild(streetname);
+      streetname.value = "";
+      formContainer.appendChild(location);
+      location.value = "";
+
+  }
+
+function addTable() {
+      if (editCounter == 1) { 
+        return false;
+      }
+      if ((id1.value != "") && (long1.value != "") && (lat1.value != "") && (pole1.value != "") && (pole2.value != "") && (pole3.value != "") && (pole4.value != "") && (pole5.value != "") && (pole6.value != "") && (hh.value != "") && (hh1.value != "") && (hh2.value != "") && (hh3.value != "") && (hh4.value != "") && (hh5.value != "") && (streetname.value != "") && (location.value != "") ) {
+      var inputs = document.getElementsByClassName('textField');
+      var out = {};
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].title !== "") {
+        out[inputs[i].title] = inputs[i].value;
+        }
+      }
+
+
+var script_url = "https://script.google.com/macros/s/AKfycbxcwHHreqVnX21QCcEL_QCV0xOIn2-POB87gZKI0Mmi3GL3SR3C/exec";
+  
+  
+  var autocomplete = $("#location").val();
+  var route = $("#streetname").val();
+  var id = $("#id1").val();
+  var long = $("#long1").val();
+  var lat = $("#lat1").val();
+  
+  //Poles Attributes
+  var polenumber = $("#pole1").val();
+  var polelandmark = $("#pole2").val();
+  var polemstnumber = $("#pole3").val();
+  var poleclosurenumber = $("#pole4").val();
+  var polemstlength = $("#pole5").val();
+  var polebbcablelength = $("#pole6").val();
+  
+  //HH Attributes 
+  var accesshhnumber = $("#hh").val();
+  var hhlandmark = $("#hh1").val();
+  var msthhnumber = $("#hh2").val();
+  var closurehhnumber = $("#hh3").val();
+  var msthhcablelength = $("#hh4").val();
+  var bbhhcablelength = $("#hh5").val();
+  
+  
+    var url = script_url+"?callback=ctrlq&autocomplete="+autocomplete+"&route="+route+"&id="+id+"&long="+long+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstnumber="+polemstnumber+"&poleclosurenumber="+poleclosurenumber+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&route="+route+"&autocomplete="+autocomplete+"&action=insert";
+
+
+     //var url = script_url+"?callback=ctrlq&id="+id+"&long="+long+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&action=insert";
+  
+
+    var request = jQuery.ajax({
+      crossDomain: true,
+      url: url ,
+      method: "GET",
+      dataType: "jsonp"
+    });
+
+  
+
+
+return false;
+      } else {
+      alert("Enter Input Values");
+      }
+    }
+
+
+var btnClick = document.createElement('input');
+    btnClick.type = "submit";
+    btnClick.value = "CREATE";
+    formContainer.onsubmit = function() {
+      return addTable();
+    };
+    formContainer.appendChild(btnClick);
+
+var curr = null;
+    
+    function editCell(e) {
+      var t = e.target.parentElement.parentElement;
+      var trs = t.getElementsByTagName("tr");
+      var tds = t.getElementsByTagName("td");
+    if (editCounter !== 0) {
+      var inputs = curr.getElementsByTagName("td");
+      for (var i = 3; i < inputs.length - 1; i++) {
+        var currInput = inputs[i].getElementsByTagName("input");
+        currInput[0].parentElement.innerHTML = currInput[0].value;
+      }
+      editCounter = 0;
+      }
+      editCounter = 1;
+
+      var currentLastname = tds[3].innerHTML;
+      tds[3].innerHTML = "";
+      tds[3].appendChild(id1);
+      id1.value = currentLastname;
+
+      var currentLastname = tds[4].innerHTML;
+      tds[4].innerHTML = "";
+      tds[4].appendChild(long1);
+      long1.value = currentLastname;
+
+      var currentEmail = tds[5].innerHTML;
+      tds[5].innerHTML = "";
+      tds[5].appendChild(lat1);
+      lat1.value = currentEmail;
+
+      var p1 = tds[6].innerHTML;
+      tds[6].innerHTML = "";
+      tds[6].appendChild(pole1);
+      pole1.value = p1;
+
+
+      var p2 = tds[7].innerHTML;
+      tds[7].innerHTML = "";
+      tds[7].appendChild(pole2);
+      pole2.value = p2;
+
+
+
+      var p3 = tds[8].innerHTML;
+      tds[8].innerHTML = "";
+      tds[8].appendChild(pole3);
+      pole3.value = p3;
+
+      var p4 = tds[9].innerHTML;
+      tds[9].innerHTML = "";
+      tds[9].appendChild(pole4);
+      pole4.value = p4;
+
+      var p5 = tds[10].innerHTML;
+      tds[10].innerHTML = "";
+      tds[10].appendChild(pole5);
+      pole5.value = p5;
+
+
+      var p6 = tds[11].innerHTML;
+      tds[11].innerHTML = "";
+      tds[11].appendChild(pole6);
+      pole6.value = p6;
+
+      var hh_1 = tds[12].innerHTML;
+      tds[12].innerHTML = "";
+      tds[12].appendChild(hh);
+      hh.value = hh_1;
+
+     var hh11 = tds[13].innerHTML;
+      tds[13].innerHTML = "";
+      tds[13].appendChild(hh1);
+      hh1.value = hh11;
+
+      var hh22 = tds[14].innerHTML;
+      tds[14].innerHTML = "";
+      tds[14].appendChild(hh2);
+      hh2.value = hh22;
+
+      var hh33 = tds[15].innerHTML;
+      tds[15].innerHTML = "";
+      tds[15].appendChild(hh3);
+      hh3.value = hh33;
+
+
+      var hh44 = tds[16].innerHTML;
+      tds[16].innerHTML = "";
+      tds[16].appendChild(hh4);
+      hh4.value = hh44;
+
+
+      var hh55 = tds[17].innerHTML;
+      tds[17].innerHTML = "";
+      tds[17].appendChild(hh5);
+      hh5.value = hh55;
+
+      var streetname1 = tds[18].innerHTML;
+      tds[18].innerHTML = "";
+      tds[18].appendChild(streetname);
+      streetname.value = streetname1;
+
+      var location1 = tds[19].innerHTML;
+      tds[19].innerHTML = "";
+      tds[19].appendChild(location);
+      location.value = location1;
+
+      
+      curr = t;
+
+    }
+
+
+
+
+
 var br = document.createElement('br');
 document.body.appendChild(br);
-
-
 
 
 var link = document.createElement('a');
@@ -3082,449 +4114,25 @@ link.setAttribute('href', 'https://docs.google.com/spreadsheets/d/19jV66LrhbYAkd
 link.innerHTML = "<span class='glyphicon glyphicon-save'></span>Download ";
 document.body.appendChild(link);
   
-
-
-
-          // CREATE DYNAMIC TABLE.
-          var table = document.createElement("table");
-
-    
-
-    var header = table.createTHead();
-    var row = header.insertRow(0);     
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    var cell9 = row.insertCell(8);
-    var cell10 = row.insertCell(9);
-    var cell11 = row.insertCell(10);
-    var cell12 = row.insertCell(11);
-    var cell13 = row.insertCell(12);
-    var cell14 = row.insertCell(13);
-    var cell15 = row.insertCell(14);
-    var cell16 = row.insertCell(15);
-
-
-
-
   
-    cell1.innerHTML = "<b>ID</b>";
-    cell2.innerHTML = "<b>LONG</b>";
-    cell3.innerHTML = "<b>LAT</b>";
-    cell4.innerHTML = "<b>POLE NUMBER</b>";
-    cell5.innerHTML = "<b>POLE LANDMARK</b>";
-    cell6.innerHTML = "<b>POLE MST_NUMBER</b>";
-    cell7.innerHTML = "<b>POLE CLOSURE_NUMBER</b>";
-    cell8.innerHTML = "<b>POLE MST_CABLELENGTH</b>";
-    cell9.innerHTML = "<b>POLE BB_CABLELENGTH</b>";
-    cell10.innerHTML = "<b>AHH_NUMBER</b>";
-    cell11.innerHTML = "<b>HANDHOLE_LANDMARK</b>";
-    cell12.innerHTML = "<b>MST_HH_NUMBER</b>";
-    cell13.innerHTML = "<b>CLOSURE HH_NUMBER</b>";
-    cell14.innerHTML = "<b>MST_HH_CABLELENGTH</b>";
-    cell15.innerHTML = "<b>BB HH_CABLELENGTH</b>";
-    cell16.innerHTML = "<b>LOCATION</b>";
-
-
-
-
-        
-        // ADD JSON DATA TO THE TABLE AS ROWS.
-        for (var i = 0; i < json.records.length; i++) {
-
-        tr = table.insertRow(-1);
-        var tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].ID;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].LONG;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].LAT;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].POLENUMBER;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].POLELANDMARK;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].POLEMSTNUMBER;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].POLECLOSURENUMBER;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].POLEMSTLENGTH;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].POLEBBCABLELENGTH;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].ACCESSHHNUMBER;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].HHLANDMARK;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].MSTHHNUMBER;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].CLOSUREHHNUMBER;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].MSTHHCABLELENGTH;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].BBHHCABLELENGTH;
-        tabCell = tr.insertCell(-1);
-        tabCell.innerHTML = json.records[i].ROUTE;
-
-        
-     
-
-
-
-//Search Codes
-
-$("#search").keyup(function() {
-    var value = this.value;
-
-    $("table").find("tr").each(function(index) {
-        if (index === 0) return;
-        var id = $(this).find("td").first().text();
-        $(this).toggle(id.indexOf(value) !== -1);
-    });
-});
-
-
-       }
       
-
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-        var divContainer = document.getElementById("showData");
-        divContainer.innerHTML = "";
-        divContainer.appendChild(table);
+        //var divContainer = document.getElementById("showData");
+        //divContainer.innerHTML = "";
+        //divContainer.appendChild(table);
     document.getElementById("loader").style.visibility = "hidden";
     $("#re").css("visibility","visible");
     });
   }
+  
+
 
 </script>
 
 
 
 
-<script type="text/javascript">
 
-$(document).ready(function () {  
-    
-    var poles = " <br/> <p> Here are the Attributes/ Properties for the Poles </p> <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Poles_Number:</label> <div class='col-sm-7'> <input type='text' id='polenumber' name='polenumber'class='form-control' autocomplete='on' placeholder='Your Label E.g. P1' required='true' maxlength='3' minlength='2' pattern='[P]{1}[0-9]{1,2}' title='Pls. use this format: P20' /> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Pole_Landmark:</label> <div class='col-sm-7'> <input type='text' id='polelandmark' name='polelandmark' class='form-control' placeholder='Your Label E.g. House 3 / Plot 100' ' required='true' /> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_Number:</label> <div class='col-sm-7'> <input type='text'  id='polemstnumber' name='polemstnumber' class='form-control' placeholder='Your Label E.g. M4' pattern='[M]{1}[0-9]{1,3}' minlength='2' maxlength='4' title='Pls. use this format: M20' autocomplete='on'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_Number:</label> <div class='col-sm-7'> <input type='text' id='poleclosurenumber' name='poleclosurenumber' class='form-control' placeholder='Your Label E.g.C4 ' autocomplete='on' pattern='[C]{1}[0-9]{1,2}' minlength='2' maxlength='3'  title='Pls. use this format: C40'/> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='polemstlength' pattern='[A-Z]{1}/[0-9]{2,3}[M]' title='Pls use this format: DLX/500M' name'polemstlength' class='form-control' placeholder='Your Label E.g. STD/DLX/500M'/ > </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='polebbcablelength' name='polebbcablelength' class='form-control' placeholder='Your Label E.g. OFS/500M' autocomplete='on' pattern='[A-Z]{3}/[0-9]{2,3}[M]' title='Pls use this format: OFS/500OM' />  </div>  </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button> <span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'><span class='glyphicon glyphicon-refresh'></span> Reset </button> </div> ";
-
-    var HandHoles = "<br> <p> Here are the Attributes/ Properties for the HandHoles </p> <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Access_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='accesshhnumber' maxlength='6' minlength='4' pattern='[A-Z]{3}[0-9]{1,3}' title='Pls. use this format: AHH2' required='true' autocomplete='on' name='accesshhnumber' class='form-control' autocomplete='on' placeholder='Your Name E.g. P1'/> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Handholes_Landmark:</label> <div class='col-sm-7'> <input type='text' id='hhlandmark' name='hhlandmark' class='form-control' placeholder='Your Name E.g. MHH2'/> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='msthhnumber' name='msthhnumber' class='form-control' placeholder='Your Name E.g. House 2'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='closurehhnumber' name='closurehhnumber' class='form-control' placeholder='Your Label E.g. BAN/P1/MHH1'/>  <span> Pls, three letters prefix for CityName,StreetName, and number of the Network Element E.g VIC/ODE/P1/M2.   </span> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='msthhcablelength' name='msthhcablelength' class='form-control' placeholder='Your Label E.g. DLX/500M'/ required> </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='bbhhcablelength' name='bbhhcablelength' class='form-control' placeholder='Your Label E.g. DLX/500M'/> </div> </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button><span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'> <span class='glyphicon glyphicon-refresh'></span> Reset </button> </div>";
-
-      var fdhCabinet = "<br> <p> Here are the Attributes/ Properties for the FDH Cabinet </p> <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>FDH Cabinet_Number:</label> <div class='col-sm-7'> <input type='text' id='fdhcabnumber' name='fdhcabnumber' class='form-control' autocomplete='on' placeholder='Your Name E.g. P1'/> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Handholes_Landmark:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Name E.g. MHH2'/> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_Number:</label> <div class='col-sm-7'> <input type='text' id='' name='' class='form-control' placeholder='Your Name E.g. House 2'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_Number:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. BAN/P1/MHH1'/>  <span> Pls, three letters prefix for CityName,StreetName, and number of the Network Element E.g VIC/ODE/P1/M2.   </span> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. DLX/500M'/ required> </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. DLX/500M'/> </div> </div> <br>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'>Create</button><span> &nbsp; </span> <br> <hr> ";
-
-
-
-
-    $('#id_contact_info').change(function () {
-
-
-      if ($(this).val()==1){
-        $('.choice_poles').hide();
-        $('.choice_handholes').hide();
-        $('.choice_cabinets').hide();
-
-      }
-
-        if ($(this).val() == 2) {
-            console.log('poles');
-            $('.choice_poles').show();
-            $('.choice_poles').html(poles);
-            $('.choice_handholes').hide();
-            $('.choice_cabinets').hide();
-
-           
-         
-        } 
-
-         if ($(this).val() == 3) {
-            console.log('Hand-Holes');
-            $('.choice_handholes').html(HandHoles);
-            $('.choice_handholes').show();
-            $('.choice_poles').hide();
-            $('.choice_cabinets').hide();
-
-        }
-
-
-        else if ($(this).val() == 4) {
-            console.log('FDHCabinet');
-            $('.choice_cabinets').show();
-            $('.choice_cabinets').html(fdhCabinet);
-            $('.choice_poles').hide();
-            $('.choice_handholes').hide();
-
-        }
-
-    });
-
-});
-
-
-
-
-var placeSearch, autocomplete;
-      var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-      };
-
-      function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
-      }
-
-      function fillInAddress() {
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
-
-        for (var component in componentForm) {
-          document.getElementById('route').value = '';
-          //document.getElementById('route2').value = '';
-          document.getElementById('route').disabled = true;
-        }
-
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        for (var i = 0; i < place.address_components.length; i++) {
-          var addressType = place.address_components[i].types[0];
-          if (componentForm[addressType]) {
-            var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
-          }
-        }
-      }
-
-      // Bias the autocomplete object to the user's geographical location,
-      // as supplied by the browser's 'navigator.geolocation' object.
-      function geolocate() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var geolocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle({
-              center: geolocation,
-              radius: position.coords.accuracy
-            });
-            autocomplete.setBounds(circle.getBounds());
-          });
-        }
-      }
-
-
-
-</script>
-
-
-<script type="text/javascript">
-
-//autocimple
-
-$(function(){
-var values = ["3.45554", "6.43455", "P3", "P20", "C4", "C45","M50","M2","DLX/30M","STD/200M","OFS/3000M", "OFS/200M" ,"AHH3", "AHH30"];
-
-$("#long, #lat, #polenumber, #polemstnumber, #poleclosurenumber, #polemstlength, #search" ).autocomplete({
-source: values
-});
-
-});
-</script>
-
-
-
-</head>
-<body>
-
-<div style="text-align:center; margin: 0px; padding:0em 0; font-size: 15px">  <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=small&timezone=Africa%2FLagos" width="100%" height="90" frameborder="0" seamless></iframe> <label> eDataMaps Collection Tool</label> </div>
-
-<div class="container" >
-  <div class="row" >
-    <ol class="breadcrumb" style="background-color: grey;  border-radius: 9px;"><img src="/globe9.gif" align="right" width=50 height=55 >
-      <li><a href="#"><span class="glyphicon glyphicon-home"> </span>  Home </a></li>
-      <li><a href="heroguyz.github.io/emaps"><span class="glyphicon glyphicon-map-marker"> </span>  Maps </a></li>
-      <li class="">Data Entry</li>
-
-    </ol>
-  </div>
-
-
-
-
-    
-  <div class="row">
-    <div class="col-md-7">
-     <form class="form-horizontal" role="form" id="form" onsubmit="return false" oninput="txtFullName.value = lat.value +','+ long.value" onclick="id.value = route.value + '/00'  + me.value " >
-        <div class="form-group">
-      
-          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> Location </label>
-          <div class="col-sm-8">
-          <input type="text" id="autocomplete" name="autocomplete" onFocus="geolocate()"  class="form-control"  placeholder="Your Street-Name E.g. Adeola Oduku" required /> </div> </div>
-
-           <div class="form-group">
-          
-          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> Street Name </label>
-          <div class="col-sm-8">
-          <input type="text" id="route" class="form-control" name="route"  readonly="true" /> </div> </div>
-     
-           <div class="form-group">
-         
-          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> ID </label>
-
-          <div class='col-sm-8'>
-          <input type="text"  id="id" name="id" class="form-control"  /> 
-          <input type="hidden" id="txtAcrescimo" name="me" required />
- </div> </div>
-
-
-
-           <div class="form-group">
-         
-          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label" > Code Generator </label>
-
-          <div class='col-sm-4'>
-         <input type="submit" value="Add +" class="bio add"  > 
-         <input type="submit" value="Minus -" class="bio minus"  >  
-
-
-         </div> </div>
-
-
-          
-          <legend> Spatial Data</legend>
-          <p> Kindly input the GPS Coordinate, below</p>
-          <div class="form-group">
-          <label id="labelLongitude" for="labelLongitude" class="col-sm-3 control-label"> Longitude</label>
-          <div class="col-sm-5">
-            <input type="hidden" id="idStudent"/>
-            <input type="text" id="long"  name="long" class="form-control" autocomplete="on"  placeholder="Your Longitude E.g. 3.54677" required="true" maxlength="7" onchange="return trim(this)" />
-
-          </div>
-        </div>
-
-
-
-       <div class="form-group">
-
-          <label for="labellatitude" id="labellatitude" class="col-sm-3 control-label">  Latitude</label>
-          <div class="col-sm-5">
-            <input type="text" id="lat" name="lat" autocomplete="on"  class="form-control" placeholder="Your Latitude E.g. 6.54677" required="true" maxlength="7" onchange="return trim(this)" />
-
-
-          </div>
-        </div>
-
-        <div class="form-group">
-
-         
-          <div class="col-sm-5">
-          <input type="hidden" id="latlng" name="txtFullName" autocomplete="on"  class="form-control"/>
-
-          <button class="y" id="clic" > <span class="glyphicon glyphicon-map-marker"></span> Reverse Geocoder </button> <div id="test"> </div>
- 
-          </div>
-        </div>
-
-        <br><br>
-  
-<legend >Non-spatial Data (Network Elements)</legend>
-<div class="form-fields">
-    <table id="bio">
-        <tr>
-            <th>
-       <label for="id_contact_info">Please, select related Network elements linking the spatial data above</label>
-            </th>
-            <td>
-                 <select name="contact_info" id="id_contact_info" style="">
-                    <option value="1">Select Network Elements</option>
-                    <option value="2">Poles</option>
-                    <option value="3">Hand-Holes</option>
-                    <option value="4">FDH Cabinets</option>
-                </select>
-            </td>
-        </tr>
-        <tr class="choice_poles"></tr>
-        <tr class="choice_handholes"></tr>
-        <tr class="choice_cabinets"></tr>
-    </table>
-</div>
-
-
-<br>
-          <div class="col-sm-offset-1 col-sm-30">
-            
-           <button type="reset" style="  background-color: #4CAF50;  border: none;  color: white;   padding: 5px 8px; text-align: center; text-decoration: none;   display: inline-block; font-size: 16px; margin: 4px 2px;  -webkit-transition-duration: 0.4s; border-radius: 5px;  transition-duration: 0.4s; cursor: pointer;" id="clic" ><span class='glyphicon glyphicon-refresh'></span>  Reset </button>
-
-           
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
-<br>
-  
-
-
-  <div class="row">
-    <nav class="navbar navbar-dark" style="background-color: grey;">
-      <form class="navbar-form navbar-center" role="search">
-
-       <div class="col-sm-15">
-<button type="button" id="createStudent" class="btn btn btn-primary"  onclick="insert_value()" value="Create Student"><span class="glyphicon glyphicon-floppy-disk"> </span> Create </button> <span>&nbsp;</span>
-
-
-<button type="button" id="" class="btn btn-success" onclick="read_value()" value="Read"><span class="glyphicon glyphicon-folder-open"></span>  Read  </button><span>&nbsp;</span>
-
-<button type="button" id="" class="btn btn-warning" onclick="update_value()" > <span class="glyphicon glyphicon-edit"></span> Update </button><span>&nbsp;</span>
-
-<button type="button" id="" class="btn btn-danger" value=""  onclick="delete_value()" > <span class="glyphicon glyphicon-trash"></span>  Delete </button>
-
-
-</div>
-
-        <div class="col-sm-offset-10 col-sm-7"> 
-          <input type="text" class="form-control" placeholder="Search" id="search"  /> 
-
-        </div>  
-       
-      </form>
-    </nav>
-  </div>
-  
-  <br>
-
-
-</div>
-
-
-
-<div align="center">
-<div id="loader"></div>
-
-<p id="re"></p>
-
-
-<br>
-
-
-<div id="showData"></div>
-</div>
 
 
 <script type="text/javascript">
@@ -3695,6 +4303,9 @@ document.getElementById('search').addEventListener('mouseup', capitalize);
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHs4Jwbs2CoI7u8NujfRVr4GkWR7cSPbg&libraries=places&callback=initAutocomplete"
          async defer></script>
+
+
+        
 
 
 </body>
