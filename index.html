@@ -2766,7 +2766,7 @@ input[type=text], select {
 }
 
 input[type=text]:focus {
-    background-color: lightblue;
+    background-color: ;
 }
 
 input[type=submit] {
@@ -2914,9 +2914,9 @@ input.error {
 
 $(document).ready(function () {  
     
-    var poles = " <br/> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your Caps Lock from your Keyboard. ALL inputs must be in UPPERCASE.  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p> <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Poles_Number:</label> <div class='col-sm-7'> <input type='text' id='polenumber' name='polenumber'class='form-control' autocomplete='on' placeholder='Your Label E.g. P1' required='true' maxlength='3' minlength='2' pattern='[P]{1}[0-9]{1,2}' title='Pls. use this format: P20 OR Turn on your Caps Lock' /> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Pole_Landmark:</label> <div class='col-sm-7'> <input type='text' id='polelandmark' name='polelandmark' class='form-control' placeholder='Your Label E.g. House 3 / Plot 100' ' required='true' /> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_Number:</label> <div class='col-sm-7'> <input type='text'  id='polemstnumber' name='polemstnumber' class='form-control' placeholder='Your Label E.g. MSTP7' pattern='[M][S][T][P]{1}[0-9]{1,3}' minlength='4' maxlength='6' title='Pls. use this format: MSTP5 OR Turn on your Caps Lock' autocomplete='on'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_Number:</label> <div class='col-sm-7'> <input type='text' id='poleclosurenumber' name='poleclosurenumber' class='form-control' placeholder='Your Label E.g.CP4 ' autocomplete='on' pattern='[C][P]{1}[0-9]{1,2}' minlength='3' maxlength='4'  title='Pls. use this format: CP40 OR Turn on your Caps Lock'/> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='polemstlength' pattern='[D][L][X]{1}/[0-9]{2,3}[M]' title='Pls use this format: DLX/500M OR Turn on your Caps Lock' name'polemstlength' class='form-control' placeholder='Your Label E.g. DLX/500M'/ > </div> </div> <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Type_Length:</label> <div class='col-sm-7'> <input type='text' id='polebbcablelength' name='polebbcablelength' class='form-control' placeholder='Your Label E.g. 900OM/24CORE' autocomplete='on' pattern='[0-9]{2,4}[M]/[0-9]{2}[C][O][R][E]' title='Pls use this format: 900OM/24CORE OR Turn on your Caps Lock' />  </div>  </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button> <span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'><span class='glyphicon glyphicon-refresh'></span> Reset </button> </div> ";
+    var poles = " <br/> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your caps Lock from your Keyboard. ALL inputs must be in UPPERCASE.  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p> <span> Insert the value of 1, which depicts the Pole Tags </span>  <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Poles_Tags:</label> <div class='col-sm-2'>  <input type='text' id='tags' name='tags' class='form-control' autocomplete='on' placeholder='' required='true' maxlength='1' minlength='1' pattern='[1]{1}' title='Pls. value 1' />  </div> </div>   <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Poles_Number:</label> <div class='col-sm-7'> <input type='text' id='polenumber' name='polenumber'class='form-control' autocomplete='on' placeholder='Your Label E.g. P1' required='true' maxlength='3' minlength='2' pattern='[P]{1}[0-9]{1,2}' title='Pls. use this format: P20 OR Turn on your Caps Lock' /> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Pole_Landmark:</label> <div class='col-sm-7'> <input type='text' id='polelandmark' name='polelandmark' class='form-control' placeholder='Your Label E.g. House 3 / Plot 100' ' required='true' /> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_Number:</label> <div class='col-sm-7'> <input type='text'  id='polemstnumber' name='polemstnumber' class='form-control' placeholder='Your Label E.g. MST5' pattern='[M][S][T]{1}[0-9]{1,3}' minlength='4' maxlength='6' title='Pls. use this format: MST5 OR Turn on your Caps Lock' autocomplete='on'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_Number:</label> <div class='col-sm-7'> <input type='text' id='poleclosurenumber' name='poleclosurenumber' class='form-control' placeholder='Your Label E.g.CLO40 ' autocomplete='on' pattern='[C][L][O]{1}[0-9]{1,2}' minlength='4' maxlength='5'  title='Pls. use this format: CLO40 OR Turn on your Caps Lock'/> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='polemstlength' pattern='[D][L][X]{1}/[0-9]{2,3}[M]' title='Pls use this format: DLX/500M OR Turn on your Caps Lock' name'polemstlength' class='form-control' placeholder='Your Label E.g. DLX/500M'/ > </div> </div> <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Type_Length:</label> <div class='col-sm-7'> <input type='text' id='polebbcablelength' name='polebbcablelength' class='form-control' placeholder='Your Label E.g. 9000M/24CORE' autocomplete='on' pattern='[0-9]{2,4}[M]/[0-9]{2}[C][O][R][E]' title='Pls use this format: 9000M/24CORE OR Turn on your Caps Lock' />  </div>  </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button> <span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'><span class='glyphicon glyphicon-refresh'></span> Reset </button> </div> ";
 
-    var HandHoles = "<br> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your capslock from your Keyboard. ALL inputs must be in UPPERCASE  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p>  <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Access_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='accesshhnumber' maxlength='6' minlength='4' pattern='[A][H][H]{3}[0-9]{1,3}' title='Pls. use this format: AHH2 OR Turn on your Caps Lock' required='true' autocomplete='on' name='accesshhnumber' class='form-control' autocomplete='on' placeholder='Your Name E.g. P1'/> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Handholes_Landmark:</label> <div class='col-sm-7'> <input type='text' id='hhlandmark' name='hhlandmark' class='form-control' placeholder='Your Label E.g. HOUSE 12/ BLOCK 5'/> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='msthhnumber' name='msthhnumber' pattern='[M][S][T][H][H]{3}[0-9]{1,3}' title='Pls. Use this format: MSTHH5 OR Turn on your Caps Lock' class='form-control' placeholder='Your Name E.g. House 2'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_HH_Number:</label> <div class='col-sm-7'> <input type='text' pattern='[C][H][H]{3}[0-9]{1,3}' title='Pls. Use this format: CHH5 OR Turn on your Caps Lock' id='closurehhnumber' name='closurehhnumber' class='form-control' placeholder='Your Label E.g. BAN/P1/MHH1'/>  <span> Pls, three letters prefix for CityName,StreetName, and number of the Network Element E.g VIC/ODE/P1/M2.   </span> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='msthhcablelength' name='msthhcablelength' class='form-control' pattern='[D][L][X]{1}/[0-9]{2,3}[M]' title='Pls use this format: DLX/500M' placeholder='Your Label E.g. DLX/500M'/ required> </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='bbhhcablelength' pattern='[0-9]{2,4}[M]/[0-9]{2}[C][O][R][E]' title='Pls use this format: 900OM/24CORE OR Turn on your Caps Lock' name='bbhhcablelength' class='form-control' placeholder='Your Label E.g.500M/24CORE'/> </div> </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button><span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'> <span class='glyphicon glyphicon-refresh'></span> Reset </button> </div>";
+    var HandHoles = "<br> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your capslock from your Keyboard. ALL inputs must be in UPPERCASE  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p> <span> Insert the value of 2, which depicts the HHs Tags </span> <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>HH_Tags:</label> <div class='col-sm-2'> <input type='text' id='tags' name='tags' class='form-control' autocomplete='on' placeholder='' required='true' maxlength='1' minlength='1' pattern='[2]{1}' title='Pls. value is 2' /> </div> </div>  <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Access_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='accesshhnumber' maxlength='6' minlength='4' pattern='[A][H][H]{1}[0-9]{1,3}' title='Pls. use this format: AHH2 OR Turn on your Caps Lock' required='true' autocomplete='on' name='accesshhnumber' class='form-control' autocomplete='on' placeholder='Your Name E.g. P1'/> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Handholes_Landmark:</label> <div class='col-sm-7'> <input type='text' id='hhlandmark' name='hhlandmark' class='form-control' placeholder='Your Label E.g. HOUSE 12/ BLOCK 5'/> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_HH_Number:</label> <div class='col-sm-7'> <input type='text' id='msthhnumber' name='msthhnumber' minlength='4' maxlength='6' pattern='[M][H][H]{1}[0-9]{1,3}' title='Pls. Use this format: MHH5 OR Turn on your Caps Lock' class='form-control' placeholder='Your Name E.g. MHH5'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_HH_Number:</label> <div class='col-sm-7'> <input type='text' pattern='[C][H][H]{1}[0-9]{1,3}' title='Pls. Use this format: CHH5 OR Turn on your Caps Lock' id='closurehhnumber' name='closurehhnumber' class='form-control' placeholder='Your Label E.g. CHH5'/>  </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='msthhcablelength' name='msthhcablelength' class='form-control' pattern='[D][L][X]{1}/[0-9]{2,3}[M]' title='Pls use this format: DLX/500M' placeholder='Your Label E.g. DLX/500M'/ required> </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='bbhhcablelength' pattern='[0-9]{2,4}[M]/[0-9]{2}[C][O][R][E]' title='Pls use this format: 9000M/24CORE OR Turn on your Caps Lock' name='bbhhcablelength' class='form-control' placeholder='Your Label E.g.500M/24CORE'/> </div> </div> <div class='col-sm-offset-5 col-sm-30'>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'><span class='glyphicon glyphicon-floppy-disk'></span> Create </button><span> &nbsp; </span> <button type='reset' value='Reset' class='btn btn btn-success'> <span class='glyphicon glyphicon-refresh'></span> Reset </button> </div>";
 
       var fdhCabinet = "<br> <p> Here are the Attributes/ Properties of the Poles. </p> <br> <p  style='color:red; padding: 10px; '> <b> Kindly turn on your capslock from your Keyboard. ALL inputs must be in UPPERCASE  </b> <i class='material-icons' style='font-size:30px;color:#e6e600'>warning</i></p>  <div class='form-group'> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>FDH Cabinet_Number:</label> <div class='col-sm-7'> <input type='text' id='fdhcabnumber' name='fdhcabnumber' class='form-control' autocomplete='on' placeholder='Your Name E.g. P1'/> </div> </div> <div class='form-group'> <label for='labelName' id='labelName' class='col-sm-4 control-label'>Handholes_Landmark:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Name E.g. MHH2'/> </div> </div> <div class='form-group'>  <label for='labellandmark' id='labellandmark' class='col-sm-4 control-label'>MST_Number:</label> <div class='col-sm-7'> <input type='text' id='' name='' class='form-control' placeholder='Your Name E.g. House 2'/> </div> </div> <div class='form-group'>  <label for='labellabel' id='labellabel' class='col-sm-4 control-label'>Closure_Number:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. BAN/P1/MHH1'/>  <span> Pls, three letters prefix for CityName,StreetName, and number of the Network Element E.g VIC/ODE/P1/M2.   </span> </div> </div> <div class='form-group'>  <label for='labelMST' id='labelMST' class='col-sm-4 control-label'>MST_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. DLX/500M'/ required> </div> </div>   <div class='form-group'> <label for='labelCable' id='labelMST' class='col-sm-4 control-label'>BB_Cable Length:</label> <div class='col-sm-7'> <input type='text' id='' class='form-control' placeholder='Your Label E.g. DLX/500M'/> </div> </div> <br>  <button type='submit' id='createStudent' class='btn btn btn-primary'  onClick='insert_value()' value='Create Student'>Create</button><span> &nbsp; </span> <br> <hr> ";
 
@@ -3046,6 +3046,8 @@ source: values
 
 });
 </script>
+
+
 
  
 </head>
@@ -3207,12 +3209,14 @@ source: values
                     <option value="2"> Poles</option>
                     <option value="3">Hand-Holes</option>
                     <option value="4">FDH Cabinets</option>
+                    <option value="5">Others</option>
                 </select>
             </td>
         </tr>
         <tr class="choice_poles"></tr>
         <tr class="choice_handholes"></tr>
         <tr class="choice_cabinets"></tr>
+        <tr class="choice_others"></tr>
     </table>
 </div>
 
@@ -3231,6 +3235,7 @@ source: values
 
 <br>
   
+<a href="https://script.google.com/macros/s/AKfycbw3nVOHBhHU91Wa_cC5D87gqUQRtSE9u6PiclOqWrwYpTHmCs0/exec">Upload</a>
 
 
   <div class="row">
@@ -3268,6 +3273,7 @@ source: values
 
 
 </div>
+
 
 
 
@@ -3335,6 +3341,7 @@ var script_url = "https://script.google.com/macros/s/AKfycbxcwHHreqVnX21QCcEL_QC
   var lat = $("#lat").val();
   
   //Poles Attributes
+  var tags = $("#tags").val();
   var polenumber = $("#polenumber").val();
   var polelandmark = $("#polelandmark").val();
   var polemstnumber = $("#polemstnumber").val();
@@ -3351,7 +3358,7 @@ var script_url = "https://script.google.com/macros/s/AKfycbxcwHHreqVnX21QCcEL_QC
   var bbhhcablelength = $("#bbhhcablelength").val();
   
   
-    var url = script_url+"?callback=ctrlq&autocomplete="+autocomplete+"&route="+route+"&id="+id+"&long="+long+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstnumber="+polemstnumber+"&poleclosurenumber="+poleclosurenumber+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&route="+route+"&autocomplete="+autocomplete+"&action=insert";
+    var url = script_url+"?callback=ctrlq&autocomplete="+autocomplete+"&route="+route+"&id="+id+"&long="+long+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstnumber="+polemstnumber+"&poleclosurenumber="+poleclosurenumber+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&msthhcablelength="+msthhcablelength+"&tags="+tags+"&bbhhcablelength="+bbhhcablelength+"&route="+route+"&autocomplete="+autocomplete+"&action=insert";
 
 
      //var url = script_url+"?callback=ctrlq&id="+id+"&long="+long+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&action=insert";
@@ -3401,7 +3408,7 @@ var lat= $("#lat").val();
 
   
   
-    var url = script_url+"?callback=ctrlq&long="+long+"&id="+id+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstnumber="+polemstnumber+"&poleclosurenumber="+poleclosurenumber+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&action=update"
+    var url = script_url+"?callback=ctrlq&long="+long+"&id="+id+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstnumber="+polemstnumber+"&poleclosurenumber="+poleclosurenumber+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&tags="+tags+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&action=update"
   
  
     var request = jQuery.ajax({
@@ -3447,7 +3454,7 @@ var autocomplete = $("#autocomplete").val();
   var bbhhcablelength = $("#bbhhcablelength").val();
 
 
-  var url = script_url+"?callback=ctrlq&long="+long+"&id="+id+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstnumber="+polemstnumber+"&poleclosurenumber="+poleclosurenumber+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&action=delete"
+  var url = script_url+"?callback=ctrlq&long="+long+"&id="+id+"&lat="+lat+"&polenumber="+polenumber+"&polelandmark="+polelandmark+"&polemstnumber="+polemstnumber+"&poleclosurenumber="+poleclosurenumber+"&polemstlength="+polemstlength+"&polebbcablelength="+polebbcablelength+"&accesshhnumber="+accesshhnumber+"&hhlandmark="+hhlandmark+"&msthhnumber="+msthhnumber+"&closurehhnumber="+closurehhnumber+"&tags="+tags+"&msthhcablelength="+msthhcablelength+"&bbhhcablelength="+bbhhcablelength+"&action=delete"
   
  
   
@@ -3613,7 +3620,13 @@ $.getJSON(url, function (json) {
 
       header = document.createElement('th');
       row.appendChild(header);
+      header.innerHTML = "TAGS";
+
+      header = document.createElement('th');
+      row.appendChild(header);
       header.innerHTML = "MAIN";
+
+      
    
       
     //var header = table.createTHead();
@@ -3888,9 +3901,20 @@ for (key in json.records[i]) {
     main.placeholder = "LOCATION";
     main.required = true;
     main.className = "textField";
-    main.id = "s1";
-    main.name="s1";
+    main.id = "main";
+    main.name="main";
     main.title = "LOCATION";
+    //formContainer.appendChild(main);
+
+
+    var tags1 = document.createElement('input');
+    tags1.type = "text";
+    tags1.placeholder = "LOCATION";
+    tags1.required = true;
+    tags1.className = "textField";
+    tags1.id = "tags1";
+    tags1.name="tags1";
+    tags1.title = "Tags";
     //formContainer.appendChild(main);
 
 
@@ -3959,6 +3983,7 @@ var script_url = "https://script.google.com/macros/s/AKfycbxcwHHreqVnX21QCcEL_QC
   var id = $("#id1").val();
   var long = $("#long1").val();
   var lat = $("#lat1").val();
+  var tags = $("#tags1").val();
   
   //Poles Attributes
   var polenumber = $("#pole1").val();
@@ -4115,10 +4140,19 @@ var curr = null;
       tds[19].appendChild(location);
       location.value = location1;
 
+      
       var main1 = tds[20].innerHTML;
       tds[20].innerHTML = "";
       tds[20].appendChild(main);
-      main.value = location1;
+      main1.value = tags11;
+
+      var tags11 = tds[21].innerHTML;
+      tds[21].innerHTML = "";
+      tds[21].appendChild(tags1);
+      tags1.value = tags11;
+
+
+
 
       
       curr = t;
