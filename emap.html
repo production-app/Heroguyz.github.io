@@ -107,24 +107,19 @@ html, body, #googft-mapCanvas {
 
     var delivery = document.getElementById('item').value;
    
-    layer = new google.maps.FusionTablesLayer({
-    
+layer = new google.maps.FusionTablesLayer({
       map: map,
       heatmap: { enabled: false },
       query: {
         select: "col19",
         from: "1QqOnEdbwnogwNT5bh0EVfc_vapXpyx1cP03HuLoM",
-        where: "col1 = '" + delivery + "'"
+        where: ""
       },
       options: {
         styleId: 2,
         templateId: 2
       }
     });
-   
-    
- 
-    
 
 
 
