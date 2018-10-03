@@ -106,7 +106,7 @@ html, body, #googft-mapCanvas {
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend'));
 
     var delivery = document.getElementById('item').value;
-    if (delivery) {
+   
     layer = new google.maps.FusionTablesLayer({
     
       map: map,
@@ -122,16 +122,8 @@ html, body, #googft-mapCanvas {
       }
     });
    
-    else{
-      
-      query: {
-        select: "col19",
-        from: "1QqOnEdbwnogwNT5bh0EVfc_vapXpyx1cP03HuLoM",
-        where: ""
-      },
-    }
-      
-    }
+    
+ 
     
 
 
