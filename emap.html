@@ -106,12 +106,13 @@ html, body, #googft-mapCanvas {
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend'));
 
     layer = new google.maps.FusionTablesLayer({
+     var delivery = document.getElementById('item').value;
       map: map,
       heatmap: { enabled: false },
       query: {
         select: "col19",
         from: "1QqOnEdbwnogwNT5bh0EVfc_vapXpyx1cP03HuLoM",
-        where: ""
+        where: "col1 = '" + delivery + "'"
       },
       options: {
         styleId: 2,
@@ -231,7 +232,7 @@ var map, measureTool;
 
 <body>
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
- <input id="pac-input" class="controls" type="text" placeholder="ITEMS">
+ <input id="item" class="controls" type="text" placeholder="ITEMS">
   <div id="googft-mapCanvas"></div>
   <input id="googft-legend-open" style="display:none" type="button" value="Legend">
   <div id="googft-legend">
