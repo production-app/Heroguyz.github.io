@@ -105,7 +105,7 @@ html, body, #googft-mapCanvas {
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend-open'));
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend'));
 
-    var delivery = document.getElementById('item').value;
+    
    
 layer = new google.maps.FusionTablesLayer({
       map: map,
@@ -233,7 +233,7 @@ var map, measureTool;
 
 <body>
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
- <input id="item" class="controls" type="text" placeholder="ITEM">
+ 
   <div id="googft-mapCanvas"></div>
   <input id="googft-legend-open" style="display:none" type="button" value="Legend">
   <div id="googft-legend">
