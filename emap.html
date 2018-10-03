@@ -106,14 +106,14 @@ html, body, #googft-mapCanvas {
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend'));
 
     
-   
+var delivery = document.getElementById('sea').value;
 layer = new google.maps.FusionTablesLayer({
       map: map,
       heatmap: { enabled: false },
       query: {
         select: "col19",
         from: "1QqOnEdbwnogwNT5bh0EVfc_vapXpyx1cP03HuLoM",
-        where: "col1 \x3d \x27Adeola Hopewell Street/000\x27"
+        where: "col1 \x3d \x27  '" + delivery + "'"  \x27"
       },
       options: {
         styleId: 2,
@@ -233,6 +233,7 @@ var map, measureTool;
 
 <body>
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+  <input id="sea" class="controls" type="text" placeholder="Search">
  
   <div id="googft-mapCanvas"></div>
   <input id="googft-legend-open" style="display:none" type="button" value="Legend">
