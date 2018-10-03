@@ -87,6 +87,9 @@ html, body, #googft-mapCanvas {
 
 
 <script type="text/javascript">
+  var delivery = document.getElementById('sea').val;
+    console.log(delivery);
+    
   function initAutocomplete() {
     var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
       (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
@@ -106,9 +109,7 @@ html, body, #googft-mapCanvas {
     map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('googft-legend'));
 
     
-var delivery = document.getElementById('sea').val;
-    console.log(delivery);
-    
+
 layer = new google.maps.FusionTablesLayer({
       map: map,
       heatmap: { enabled: false },
