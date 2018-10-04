@@ -87,8 +87,8 @@ html, body, #googft-mapCanvas {
 
 
 <script type="text/javascript">
-  var delivery = document.getElementById('sea').value;
-    console.log(delivery);
+  var s = document.getElementById('s').value;
+    console.log(s);
     
   function initAutocomplete() {
     var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
@@ -236,7 +236,7 @@ var map, measureTool;
 
 <body>
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-  <input id="sea" class="" type="text" placeholder="Search">
+  <input id="s" class="" type="text" placeholder="Search">
  
   <div id="googft-mapCanvas"></div>
   <input id="googft-legend-open" style="display:none" type="button" value="Legend">
