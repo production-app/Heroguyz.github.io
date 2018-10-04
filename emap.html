@@ -87,8 +87,7 @@ html, body, #googft-mapCanvas {
 
 
 <script type="text/javascript">
-  var s = document.getElementById("s");
-    console.log(s);
+ 
     
   function initAutocomplete() {
     var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
@@ -257,6 +256,12 @@ var map, measureTool;
     <input id="googft-legend-close" style="display:none" type="button" value="Hide">
   </div>
 
+  <script>
+  
+   var s = document.getElementById('s').value;
+    console.log(s);
+  
+  </script>
 
 <script src="/MeasureTool.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHs4Jwbs2CoI7u8NujfRVr4GkWR7cSPbg&libraries=geometry,places&callback=initAutocomplete"
